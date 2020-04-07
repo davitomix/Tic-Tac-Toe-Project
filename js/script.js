@@ -10,6 +10,8 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6]
 ];
+var players=['X','O'];
+var whoseturn = 0;
 const cellElements = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('board');
 const winningMsgElement = document.getElementById('winningMsg');
@@ -27,7 +29,7 @@ const endGame = (draw) => {
   if(draw) {
     winningMsgTxtElement.innerText = 'Draw!';
   } else {
-    winningMsgTxtElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+    winningMsgTxtElement.innerText = `${circleTurn ? players[1] : players[0]} Wins!`;
   }
   winningMsgElement.classList.add('show');
 }
@@ -38,6 +40,10 @@ const placeMark = (cell, currentClass) => {
 
 const swapTurns = () => {
   circleTurn = !circleTurn;
+  
+  if (whoseturn == 0) whoseturn=1;
+  else whoseturn=0;
+  document.getElementById("game-message").innerText = players[whoseturn] + "'s Turn"
 }
 
 const setBoardHoverClass = () => {
@@ -88,6 +94,7 @@ const game = (() => {
   };
   resetBtn.addEventListener('click', startGame);
   startGame();
+  document.getElementById("game-message").innerText = players[0] + "'s Turn"
 });
 
 window.onload = function ready() {
@@ -99,10 +106,12 @@ window.onload = function ready() {
     const ipt = item.getElementsByTagName('input');
     ipt[0].addEventListener('input', () => {
       if (playerForm.name1.value > '' && playerForm.name2.value > '') {
+        players[0]=playerForm.name1.value;
+        players[1]=playerForm.name2.value;
         btn.disabled = false;
       } else {
         btn.disabled = true;
-      }
+      }       
     });
   });
 };
