@@ -8,6 +8,28 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="players">
+    <form id="player-form" class="needs-validation " novalidate>
+      <div class="player-name player-input">
+        <label for="player1"> Player One</label>
+        <input type="text" class="" name="name1" id="player1" required />
+      </div>
+      <div class="player-name player-input">
+        <label for="player2"> Player Two </label>
+        <input type="text" name="name2" id="player2" />
+      </div>
+      <div class="player-name">
+        <input
+          type="button"
+          disabled
+          name="submit"
+          id="submit"
+          value="Submit"
+          onclick="game()"
+        />
+      </div>
+    </form>
+  </div>
   <div class="board" id="board">
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
