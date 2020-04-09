@@ -18,56 +18,64 @@ const winningMsgElement = document.getElementById('winningMsg');
 const winningMsgTxtElement = document.querySelector('[data-winning-msg-txt]');
 const resetBtn = document.getElementById('resetBtn');
 let circleTurn = false;
-/* eslint-disable */
-const isDraw = () => [...cellElements].every(cell => cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS));
-/* eslint-enable */
-const endGame = (draw) => {
-  if (draw) {
-    winningMsgTxtElement.innerText = 'Draw!';
-  } else {
-    winningMsgTxtElement.innerText = `${circleTurn ? players[1] : players[0]} Wins!`;
-  }
-  winningMsgElement.classList.add('show');
+
+window.onload = function ready() {
+  board.classList.add('d-none');
+  currentPlayerBox.classList.add('d-none');
+  playerForm.reset();
+  select.forEach(item => {
+    const ipt = item.getElementsByTagName('input');
+    ipt[0].addEventListener('input', () => {
+      if (playerForm.nameX.value > '' && playerForm.nameO.value > '') {
+        btn.disabled = false;
+      } else {
+        btn.disabled = true;
+      }
+    });
+  });
 };
 
-const placeMark = (cell, currentClass) => {
-  cell.classList.add(currentClass);
-};
-
-const swapTurns = () => {
-  circleTurn = !circleTurn;
-
-  if (whoseturn === 0) whoseturn = 1;
-  else whoseturn = 0;
-  document.getElementById('game-message').innerText = `${players[whoseturn]}'s Turn`;
-};
-
-const setBoardHoverClass = () => {
-  board.classList.remove(X_CLASS);
-  board.classList.remove(CIRCLE_CLASS);
-  if (circleTurn) {
-    board.classList.add(CIRCLE_CLASS);
-  } else {
-    board.classList.add(X_CLASS);
-  }
-};
-/* eslint-disable */
-const checkWin = (currentClass) => WINNING_COMBINATIONS.some(combination => combination.every(index => cellElements[index].classList.contains(currentClass)));
-/* eslint-enable */
-const handleClick = (e) => {
-  if (e) {
-    const cell = e.target;
-    const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
-    placeMark(cell, currentClass);
-    if (checkWin(currentClass)) {
-      endGame(false);
-    } else if (isDraw()) {
-      endGame(true);
-    } else {
-      swapTurns();
-      setBoardHoverClass();
+const Game = () => {
+  const setBoardHoverClass = (turn) => {
+    board.classList.remove(X_CLASS);
+    board.classList.remove(CIRCLE_CLASS);
+    if(turn) {
+      board.classList.add(X_CLASS);
     }
-  }
+    else {
+      board.classList.add(CIRCLE_CLASS);
+    }
+  };
+  const placeMark = (cell, currentClass) => {
+    cell.classList.add(currentClass);
+  };
+  const checkWin = (currentClass) => {
+    return WINNING_COMBINATIONS.some(combination => {
+      return combination.every(index => {
+        return cellElements[index].classList.contains(currentClass);
+      })
+    })
+  };
+  const endGame = (draw, turn) => {
+      if(draw) {
+        winningMsgTxtElement.innerText = 'Draw!';
+      } else {
+        winningMsgTxtElement.innerText = `${turn ? "X's" : "O's"} Wins!`;
+      }
+      winningMsgElement.classList.add('show');
+  };
+  const isDraw = () => {
+    return [...cellElements].every(cell => {
+      return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS);
+    })
+  };
+  return {
+    setBoardHoverClass,
+    placeMark,
+    checkWin,
+    endGame,
+    isDraw
+  };
 };
 
 
@@ -88,21 +96,3 @@ resetBtn.addEventListener('click', startGame);
 startGame();
 
 
-window.onload = function ready() {
-  const playerForm = document.getElementById('player-form');
-  playerForm.reset();
-  const btn = document.getElementById('submit');
-  const select = document.querySelectorAll('.player-input');
-  select.forEach(item => {
-    const ipt = item.getElementsByTagName('input');
-    ipt[0].addEventListener('input', () => {
-      if (playerForm.name1.value > '' && playerForm.name2.value > '') {
-        players[0] = playerForm.name1.value;
-        players[1] = playerForm.name2.value;
-        btn.disabled = false;
-      } else {
-        btn.disabled = true;
-      }
-    });
-  });
-};
