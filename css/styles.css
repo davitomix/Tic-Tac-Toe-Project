@@ -144,3 +144,7 @@ body {
 .winning-msg.show {
   display: flex;
 }
+
+.d-none {
+  display: none;
+}

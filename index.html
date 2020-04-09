@@ -8,29 +8,30 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="players">
-    <form id="player-form" class="needs-validation " novalidate>
-      <div class="player-name player-input">
-        <label for="player1"> Player One</label>
-        <input type="text" class="" name="name1" id="player1" required />
+  <div class="start-players">
+    <form id="player-form" novalidate>
+      <div class="player-input">
+        <label for="playerX"> Player One</label>
+        <input type="text" class="" name="nameX" id="playerX" required />
       </div>
-      <div class="player-name player-input">
-        <label for="player2"> Player Two </label>
-        <input type="text" name="name2" id="player2" />
+      <div class="player-input">
+        <label for="playerO"> Player Two </label>
+        <input type="text" name="nameO" id="playerO" />
       </div>
-      <div class="player-name">
+      <div>
         <input
-          type="button"
-          disabled
-          name="submit"
-          id="submit"
-          value="Submit"
-          onclick="initGame(this.form)"
+        type="button"
+        disabled
+        name="submit"
+        id="submit"
+        value="Submit"
+        onclick="initGame(this.form)"
         />
       </div>
     </form>
   </div>
-  <h2 id="game-message">Tic tac toe</h2>
+  <div id="current-player">
+  </div>
   <div class="board" id="board">
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
