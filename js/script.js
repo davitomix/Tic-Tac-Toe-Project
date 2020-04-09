@@ -1,7 +1,5 @@
-// ok
 const X_CLASS = 'x';
 const CIRCLE_CLASS = 'circle';
-const X_TURN = true;
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -85,12 +83,12 @@ const playersObj = (player1, player2) => {
 
 const startGame = (playerX, playerO) => {
   const game = Game();
-  let turn;
-  let playX;
-  let playO;
+  let turn = true;
   const handleClick = (e) => {
     const cell = e.target;
     const currentClass = turn ? X_CLASS : CIRCLE_CLASS;
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
     game.placeMark(cell, currentClass);
     // -----------
     if (game.checkWin(currentClass)) {
@@ -99,22 +97,19 @@ const startGame = (playerX, playerO) => {
       game.endGame(true, turn);
     } else {
       turn = !turn;
-      game.setBoardHoverClass(turn);
       if (turn) {
-        currentPlayerBox.innerHTML = `<h2> Its player ${playX} turn </h2>`;
+        currentPlayerBox.innerHTML = `<h2> Its player ${playerX} turn </h2>`;
       } else {
-        currentPlayerBox.innerHTML = `<h2> Its player ${playO} turn </h2>`;
+        currentPlayerBox.innerHTML = `<h2> Its player ${playerO} turn </h2>`;
       }
+      game.setBoardHoverClass(turn);
     }
     // ----------
   };
-  playX = playerX;
-  playO = playerO;
   playerForm.classList.add('d-none');
   board.classList.remove('d-none');
   currentPlayerBox.classList.remove('d-none');
-  currentPlayerBox.innerHTML = `<h2> Its player ${playX} turn </h2>`;
-  turn = X_TURN;
+  currentPlayerBox.innerHTML = `<h2> Its player ${playerX} turn </h2>`;
   game.setBoardHoverClass(turn);
   resetBtn.addEventListener('click', () => {
     startGame(playerX, playerO);
