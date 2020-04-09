@@ -17,7 +17,7 @@ const board = document.getElementById('board');
 const winningMsgElement = document.getElementById('winningMsg');
 const winningMsgTxtElement = document.querySelector('[data-winning-msg-txt]');
 const resetBtn = document.getElementById('resetBtn');
-let circleTurn = false;
+
 
 window.onload = function ready() {
   board.classList.add('d-none');
@@ -78,6 +78,11 @@ const Game = () => {
   };
 };
 
+const playersObj = (player1, player2) => {
+  playerX = player1;
+  playerO = player2;
+  return { playerX, playerO }
+};
 
 const startGame = () => {
   cellElements.forEach(cell => {
