@@ -65,20 +65,13 @@ const playersObj = (player1, player2) => {
   return { playerX, playerO }
 };
 
-const startGame = () => {
-  cellElements.forEach(cell => {
-    cell.classList.remove(X_CLASS);
-    cell.classList.remove(CIRCLE_CLASS);
-    cell.removeEventListener('click', handleClick);
-    cell.addEventListener('click', handleClick, { once: true });
-  });
-  setBoardHoverClass();
-  winningMsgElement.classList.remove('show');
-  if (players[0] !== 'X') {
-    document.getElementById('game-message').innerText = `${players[0]}'s Turn`;
-  }
+const initGame = (form) => {
+  const player1 = form[0].value;
+  const player2 = form[1].value;
+  const players = playersObj(player1, player2);
+  const playerX = players.playerX;
+  const playerO = players.playerO;
+  startGame(playerX, playerO);
 };
-resetBtn.addEventListener('click', startGame);
-startGame();
 
 
