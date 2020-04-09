@@ -1,8 +1,7 @@
 // ok
 const X_CLASS = 'x';
-const CIRCLE_CLASS = 'circle'; 
+const CIRCLE_CLASS = 'circle';
 const X_TURN = true;
-const CIRCLE_TURN = false;
 const WINNING_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
