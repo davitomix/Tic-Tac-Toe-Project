@@ -12,8 +12,8 @@ body {
 }
 
 .board {
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -147,4 +147,21 @@ body {
 
 .d-none {
   display: none;
+}
+
+.sized {
+  width: 90vw;
+  height: 90vh;
+}
+
+.start-players {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

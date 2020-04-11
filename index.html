@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/styles.css">
-  <script src="./js/script.js" defer></script>
+  <script type="module" src="./js/main.js" defer></script>
   <title>Document</title>
 </head>
 <body>
-  <div class="start-players">
+  <div class="start-players" id="players-box">
     <form id="player-form" novalidate>
       <div class="player-input">
         <label for="playerX"> Player One</label>
@@ -18,7 +18,7 @@
         <label for="playerO"> Player Two </label>
         <input type="text" name="nameO" id="playerO" />
       </div>
-      <div>
+      <div class="player-btn">
         <input
         type="button"
         disabled
