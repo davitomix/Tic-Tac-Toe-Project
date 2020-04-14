@@ -1,6 +1,10 @@
 import GameDom from './dom-utils.js';
+import Game from './game-utils.js';
+
+const X_CLASS = 'x';
+const CIRCLE_CLASS = 'circle';
+
 const domItem = GameDom;
-const startBtn = document.getElementById('submit'); 
 
 window.onload = function ready() {
   domItem.hideBoard();
@@ -15,5 +19,52 @@ window.onload = function ready() {
 domItem.startBtn.onclick = function initGame() {
   const playerX = domItem.getPlayers().playerX;
   const playerO = domItem.getPlayers().playerO;
-  console.log(playerX + playerO);
+  startGame(playerX, playerO);
 }
+
+const startGame = ((playerX, playerO) => {
+  console.log('Into startgame');
+  const game = Game;
+  let turn = true;
+  game.started();
+
+  const handleClick = (e) => {
+    const cell = e.target;
+    const currentClass = turn ? X_CLASS : CIRCLE_CLASS;
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
+    game.placeMark(cell, currentClass);
+    // -----------
+    if (game.checkWin(currentClass, domItem.cellElements)) {
+      game.endGame(false, turn, domItem.winningMsgTxtElement, domItem.winningMsgElement, playerX, playerO);
+    } else if (game.isDraw(domItem.cellElements)) {
+      game.endGame(true, turn, domItem.winningMsgTxtElement, domItem.winningMsgElement, playerX, playerO);
+    } else {
+      turn = !turn;
+      if (turn) {
+        domItem.showCurrentPlayer(playerX);
+      } else {
+        domItem.showCurrentPlayer(playerO);
+      }
+      game.setBoardHoverClass(turn);
+    }
+    // ----------
+  };
+
+  domItem.decreasePlayersBoxUnsize();
+  domItem.removePlayerForm();
+  domItem.showBoard();
+  domItem.currentPlayerBoxUnhide();
+  domItem.showCurrentPlayer(playerX);
+  game.setBoardHoverClass(turn);
+  domItem.resetBtn.addEventListener('click', () => {
+    startGame(playerX, playerO);
+  }, false);
+  domItem.cellElements.forEach(cell => {
+    cell.classList.remove(X_CLASS);
+    cell.classList.remove(CIRCLE_CLASS);
+    cell.removeEventListener('click', handleClick);
+    cell.addEventListener('click', handleClick, { once: true });
+  });
+  domItem.winningMsgElement.classList.remove('show');
+});

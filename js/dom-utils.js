@@ -11,6 +11,10 @@ const GameDom = (() => {
   const startBtn = document.getElementById('submit');
   const select = document.querySelectorAll('.player-input');
 
+  const removePlayerForm = () => {
+    playerForm.classList.add('d-none');
+  };
+
   const increasePlayersBoxSize = () => {
     playersBox.classList.add('sized');
   };
@@ -54,7 +58,12 @@ const GameDom = (() => {
     currentPlayerBox.classList.remove('d-none');
   };
 
+  const showCurrentPlayer = (playerTurn) => {
+    currentPlayerBox.innerHTML = `<h2> Its player ${playerTurn} turn </h2>`;
+  };
+
   return {
+    removePlayerForm,
     increasePlayersBoxSize,
     decreasePlayersBoxUnsize,
     hideBoard,
@@ -68,6 +77,7 @@ const GameDom = (() => {
     select,
     hideCurrentPlayerBox,
     currentPlayerBoxUnhide,
+    showCurrentPlayer,
     playersName,
     getPlayers
   };

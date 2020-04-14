@@ -165,3 +165,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.current-player {
+  padding-top: 50px;
+  margin: auto;
+  text-align: center;
+}
