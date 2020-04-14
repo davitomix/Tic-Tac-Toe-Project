@@ -10,27 +10,21 @@ const GameDom = (() => {
   const playerForm = document.getElementById('player-form');
   const startBtn = document.getElementById('submit');
   const select = document.querySelectorAll('.player-input');
-
   const removePlayerForm = () => {
     playerForm.classList.add('d-none');
   };
-
   const increasePlayersBoxSize = () => {
     playersBox.classList.add('sized');
   };
-
   const decreasePlayersBoxUnsize = () => {
     playersBox.classList.remove('sized');
   };
-
   const hideBoard = () => {
     board.classList.add('d-none');
   };
-
   const showBoard = () => {
     board.classList.remove('d-none');
   };
-
   const playersName = (item) => {
     const ipt = item.getElementsByTagName('input');
     ipt[0].addEventListener('input', () => {
@@ -41,7 +35,6 @@ const GameDom = (() => {
       }
     });
   };
-
   const getPlayers = () => {
     const playerX = playerForm.nameX.value;
     const playerO = playerForm.nameO.value;
@@ -49,23 +42,20 @@ const GameDom = (() => {
       playerX, playerO,
     };
   };
-
   const hideCurrentPlayerBox = () => {
     currentPlayerBox.classList.add('d-none');
   };
-
   const currentPlayerBoxUnhide = () => {
     currentPlayerBox.classList.remove('d-none');
   };
-
   const showCurrentPlayer = (playerTurn) => {
     currentPlayerBox.innerHTML = `<h2> Its player ${playerTurn} turn </h2>`;
   };
-
   return {
     removePlayerForm,
     increasePlayersBoxSize,
     decreasePlayersBoxUnsize,
+    board,
     hideBoard,
     showBoard,
     cellElements,
@@ -82,5 +72,4 @@ const GameDom = (() => {
     getPlayers,
   };
 })();
-
 export default GameDom;

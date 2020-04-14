@@ -10,10 +10,8 @@ const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-
 const Game = (() => {
-  /* eslint-disable */
-  const setBoardHoverClass = (turn) => {
+  const setBoardHoverClass = (turn, board) => {
     board.classList.remove(X_CLASS);
     board.classList.remove(CIRCLE_CLASS);
     if (turn) {
@@ -22,24 +20,23 @@ const Game = (() => {
       board.classList.add(CIRCLE_CLASS);
     }
   };
-  /* eslint-enable */
-
   const placeMark = (cell, currentClass) => {
     cell.classList.add(currentClass);
   };
   /* eslint-disable */
-  const checkWin = (currentClass, cellElements) => WINNING_COMBINATIONS.some(combination => combination.every(index => cellElements[index].classList.contains(currentClass)));
+  const checkWin = (currentClass, cellElements) => WINNING_COMBINATIONS.some((combination) => combination.every((index) => cellElements[index].classList.contains(currentClass)));
   /* eslint-enable */
   const endGame = (draw, turn, txtElement, element, playerX, playerO) => {
+    const textElement = txtElement;
     if (draw) {
-      txtElement.innerText = 'Draw!';
+      textElement.innerText = 'Draw!';
     } else {
-      txtElement.innerText = `${turn ? playerX : playerO} Wins!`;
+      textElement.innerText = `${turn ? playerX : playerO} Wins!`;
     }
     element.classList.add('show');
   };
   /* eslint-disable */
-  const isDraw = (cellElements) => [...cellElements].every(cell => cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS));
+  const isDraw = (cellElements) => [...cellElements].every((cell) => cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS));
   /* eslint-enable */
   return {
     setBoardHoverClass,
@@ -49,5 +46,4 @@ const Game = (() => {
     isDraw,
   };
 })();
-
 export default Game;
