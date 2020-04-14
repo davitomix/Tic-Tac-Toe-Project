@@ -30,7 +30,7 @@ const GameDom = (() => {
   const showBoard = () => {
     board.classList.remove('d-none');
   };
-  
+
   const playersName = (item) => {
     const ipt = item.getElementsByTagName('input');
     ipt[0].addEventListener('input', () => {
@@ -46,8 +46,8 @@ const GameDom = (() => {
     const playerX = playerForm.nameX.value;
     const playerO = playerForm.nameO.value;
     return {
-      playerX, playerO
-    }
+      playerX, playerO,
+    };
   };
 
   const hideCurrentPlayerBox = () => {
@@ -79,7 +79,7 @@ const GameDom = (() => {
     currentPlayerBoxUnhide,
     showCurrentPlayer,
     playersName,
-    getPlayers
+    getPlayers,
   };
 })();
 

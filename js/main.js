@@ -1,5 +1,5 @@
-import GameDom from './dom-utils.js';
-import Game from './game-utils.js';
+import GameDom from './dom-utils';
+import Game from './game-utils';
 
 const X_CLASS = 'x';
 const CIRCLE_CLASS = 'circle';
@@ -16,14 +16,7 @@ window.onload = function ready() {
   });
 };
 
-domItem.startBtn.onclick = function initGame() {
-  const playerX = domItem.getPlayers().playerX;
-  const playerO = domItem.getPlayers().playerO;
-  startGame(playerX, playerO);
-}
-
 const startGame = ((playerX, playerO) => {
-  console.log('Into startgame');
   const game = Game;
   let turn = true;
   game.started();
@@ -35,10 +28,12 @@ const startGame = ((playerX, playerO) => {
     cell.classList.remove(CIRCLE_CLASS);
     game.placeMark(cell, currentClass);
     // -----------
+    /* eslint-disable */
     if (game.checkWin(currentClass, domItem.cellElements)) {
       game.endGame(false, turn, domItem.winningMsgTxtElement, domItem.winningMsgElement, playerX, playerO);
     } else if (game.isDraw(domItem.cellElements)) {
       game.endGame(true, turn, domItem.winningMsgTxtElement, domItem.winningMsgElement, playerX, playerO);
+    /* eslint-enable */
     } else {
       turn = !turn;
       if (turn) {
@@ -68,3 +63,9 @@ const startGame = ((playerX, playerO) => {
   });
   domItem.winningMsgElement.classList.remove('show');
 });
+
+domItem.startBtn.onclick = function initGame() {
+  const { playerX } = domItem.getPlayers();
+  const { playerO } = domItem.getPlayers();
+  startGame(playerX, playerO);
+};

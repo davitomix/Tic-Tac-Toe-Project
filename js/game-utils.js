@@ -12,7 +12,7 @@ const WINNING_COMBINATIONS = [
 ];
 
 const Game = (() => {
-  const started = () => console.log('Game already started.');
+  /* eslint-disable */
   const setBoardHoverClass = (turn) => {
     board.classList.remove(X_CLASS);
     board.classList.remove(CIRCLE_CLASS);
@@ -22,13 +22,14 @@ const Game = (() => {
       board.classList.add(CIRCLE_CLASS);
     }
   };
+  /* eslint-enable */
 
   const placeMark = (cell, currentClass) => {
     cell.classList.add(currentClass);
   };
-
+  /* eslint-disable */
   const checkWin = (currentClass, cellElements) => WINNING_COMBINATIONS.some(combination => combination.every(index => cellElements[index].classList.contains(currentClass)));
-
+  /* eslint-enable */
   const endGame = (draw, turn, txtElement, element, playerX, playerO) => {
     if (draw) {
       txtElement.innerText = 'Draw!';
@@ -37,16 +38,15 @@ const Game = (() => {
     }
     element.classList.add('show');
   };
-
+  /* eslint-disable */
   const isDraw = (cellElements) => [...cellElements].every(cell => cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS));
-
+  /* eslint-enable */
   return {
-    started,
     setBoardHoverClass,
     placeMark,
     checkWin,
     endGame,
-    isDraw
+    isDraw,
   };
 })();
 
