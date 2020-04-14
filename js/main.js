@@ -1,5 +1,6 @@
 import GameDom from './dom-utils.js';
-const domItem = GameDom();
+const domItem = GameDom;
+const startBtn = document.getElementById('submit'); 
 
 window.onload = function ready() {
   domItem.hideBoard();
@@ -10,3 +11,9 @@ window.onload = function ready() {
     domItem.playersName(item);
   });
 };
+
+domItem.startBtn.onclick = function initGame() {
+  const playerX = domItem.getPlayers().playerX;
+  const playerO = domItem.getPlayers().playerO;
+  console.log(playerX + playerO);
+}

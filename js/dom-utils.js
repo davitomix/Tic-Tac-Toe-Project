@@ -8,7 +8,7 @@ const GameDom = (() => {
   const resetBtn = document.getElementById('resetBtn');
   // Player form.
   const playerForm = document.getElementById('player-form');
-  const btn = document.getElementById('submit');
+  const startBtn = document.getElementById('submit');
   const select = document.querySelectorAll('.player-input');
 
   const increasePlayersBoxSize = () => {
@@ -31,11 +31,19 @@ const GameDom = (() => {
     const ipt = item.getElementsByTagName('input');
     ipt[0].addEventListener('input', () => {
       if (playerForm.nameX.value > '' && playerForm.nameO.value > '') {
-        btn.disabled = false;
+        startBtn.disabled = false;
       } else {
-        btn.disabled = true;
+        startBtn.disabled = true;
       }
     });
+  };
+
+  const getPlayers = () => {
+    const playerX = playerForm.nameX.value;
+    const playerO = playerForm.nameO.value;
+    return {
+      playerX, playerO
+    }
   };
 
   const hideCurrentPlayerBox = () => {
@@ -56,12 +64,13 @@ const GameDom = (() => {
     winningMsgTxtElement,
     resetBtn,
     playerForm,
-    btn,
+    startBtn,
     select,
     hideCurrentPlayerBox,
     currentPlayerBoxUnhide,
-    playersName
+    playersName,
+    getPlayers
   };
-});
+})();
 
 export default GameDom;
