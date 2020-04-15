@@ -1,0 +1,26 @@
+{
+  "name": "Tic-Tac-Toe-Project",
+  "version": "1.0.0",
+  "description": "A Simple Library Web App that store books according to the user input. [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cochabambinoski/Tic-Tac-Toe-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cochabambinoski/Tic-Tac-Toe-Project/issues"
+  },
+  "homepage": "https://github.com/cochabambinoski/Tic-Tac-Toe-Project#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  },
+  "dependencies": {}
+}
