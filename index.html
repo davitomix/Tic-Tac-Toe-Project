@@ -3,11 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style/styles.css">
-  <script src="./script/script.js" defer></script>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script type="module" src="./js/main.js" defer></script>
   <title>Document</title>
 </head>
 <body>
+  <div class="start-players" id="players-box">
+    <form id="player-form" novalidate>
+      <div class="player-input">
+        <label for="playerX"> Player One</label>
+        <input type="text" class="" name="nameX" id="playerX" required />
+      </div>
+      <div class="player-input">
+        <label for="playerO"> Player Two </label>
+        <input type="text" name="nameO" id="playerO" />
+      </div>
+      <div class="player-btn">
+        <input
+        type="button"
+        disabled
+        name="submit"
+        id="submit"
+        value="Submit"
+        />
+      </div>
+    </form>
+  </div>
+  <div id="current-player" class="current-player">
+  </div>
   <div class="board" id="board">
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
