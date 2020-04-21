@@ -12,7 +12,7 @@ A Simple Library Web App that store books according to the user input.
 - Linters.
 
 ## Live Demo
-[Live version :squirrel:](#).
+[Live version :squirrel: ](https://cochabambinoski.github.io/Tic-Tac-Toe-Project/).
 
 ## Authors
 
