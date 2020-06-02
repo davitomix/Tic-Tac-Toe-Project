@@ -1,6 +1,6 @@
 # Tic-Tac-Toe-Project
 
-> This project consist on a simple web app where you can play Tic Tac Toe within a friend.
+> This project consist on a simple web app where you can play Tic Tac Toe with a friend.
 
 ![screenshot](./tictactocmain.gif)
 
