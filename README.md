@@ -1,18 +1,22 @@
 # Tic-Tac-Toe-Project
 ### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Feber Castellon](https://github.com/cochabambinoski) 👤
 
-A Simple Library Web App that store books according to the user input.
+A web app tp play Tic Tac Toe!.
 [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
 
 ## Built With
 
-- JS.
-- Html.
-- CSS.
-- Linters.
+- JS ES6.
+- HTML.
+- CSS3.
 
 ## Live Demo
-[Live version :squirrel:](#).
+[Live version :rocket:](#).
+
+## Getting Started
+- Download the repo in your computer.
+- Drag and drop the index.html file into your web browser.
+- Have fun!. :)
 
 ## Authors
 
