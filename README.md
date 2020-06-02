@@ -1,7 +1,7 @@
 # Tic-Tac-Toe-Project
 ### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Feber Castellon](https://github.com/cochabambinoski) 👤
 
-![screenshot](./tictactoemain.gif)
+![screenshot](./tictactocmain.gif)
 
 A simple web app to play Tic Tac Toe!.
 [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
