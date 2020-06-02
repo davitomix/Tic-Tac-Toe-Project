@@ -1,9 +1,10 @@
 # Tic-Tac-Toe-Project
-### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Feber Castellon](https://github.com/cochabambinoski) 👤
+
+> This project consist on a simple web app where you can play Tic Tac Toe within a friend.
 
 ![screenshot](./tictactocmain.gif)
 
-A simple web app to play Tic Tac Toe!.
+
 [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
 
 ## Built With
