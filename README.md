@@ -1,7 +1,9 @@
 # Tic-Tac-Toe-Project
 ### Authors: [David Eli Martinez](https://github.com/davitomix) 👤 & [Feber Castellon](https://github.com/cochabambinoski) 👤
 
-A web app tp play Tic Tac Toe!.
+![screenshot](./tictactocmain.gif)
+
+A simple web app to play Tic Tac Toe!.
 [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
 
 ## Built With
@@ -11,12 +13,12 @@ A web app tp play Tic Tac Toe!.
 - CSS3.
 
 ## Live Demo
-[Live version :rocket:](#).
+[Live version :rocket:](https://rawcdn.githack.com/davitomix/Tic-Tac-Toe-Project/e5218b93ad649f3552e5908d848ddc27c1b41f62/index.html).
 
 ## Getting Started
 - Download the repo in your computer.
 - Drag and drop the index.html file into your web browser.
-- Have fun!. :)
+- Have fun! :)
 
 ## Authors
 
