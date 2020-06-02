@@ -9,11 +9,12 @@
 
 body {
   margin: 0;
+  padding: 0;
 }
 
 .board {
-  width: 90vw;
-  height: 90vh;
+  width: 100vw;
+  height: 80vh;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -158,12 +159,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
-.player-btn {
+.player-input {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+}
+
+.player-input label {
+  font-size: 20px;
+  margin: 0 15px;
+}
+
+.player-input input {
+  height: 25px;
+}
+
+.player-btn {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-btn button {
+  height: 40px;
+  width: 100px;
 }
 
 .current-player {
