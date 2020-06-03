@@ -43,7 +43,7 @@ Give a ⭐️ if you like this project!
 
 ## Source
 
-[The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
+[The Odin Project](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).
 
 ## 📝 License
 
