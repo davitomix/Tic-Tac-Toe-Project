@@ -4,7 +4,7 @@
   "description": "A Simple Library Web App that store books according to the user input. [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/cochabambinoski/Tic-Tac-Toe-Project#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^26.1.0",
+    "webpack": "^4.43.0"
   },
   "dependencies": {}
 }

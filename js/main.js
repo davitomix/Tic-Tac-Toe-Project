@@ -1,10 +1,13 @@
 /* eslint-disable */
 import GameDom from './dom-utils.js';
 import Game from './game-utils.js';
+import PlayerGenerator from './player-utils.js';
 /* eslint-enable */
 const X_CLASS = 'x';
 const CIRCLE_CLASS = 'circle';
 const domItem = GameDom;
+const playerFactory = PlayerGenerator;
+
 window.onload = function ready() {
   domItem.hideBoard();
   domItem.hideCurrentPlayerBox();
@@ -14,6 +17,7 @@ window.onload = function ready() {
     domItem.playersName(item);
   });
 };
+
 const startGame = ((playerX, playerO) => {
   const game = Game;
   let turn = true;
@@ -58,8 +62,11 @@ const startGame = ((playerX, playerO) => {
   });
   domItem.winningMsgElement.classList.remove('show');
 });
+
 domItem.startBtn.onclick = function initGame() {
   const { playerX } = domItem.getPlayers();
   const { playerO } = domItem.getPlayers();
-  startGame(playerX, playerO);
+  const player1 = playerFactory(playerX, 'X', []);
+  const player2 = playerFactory(playerO, 'O', []);
+  startGame(player1.name, player2.name);
 };
