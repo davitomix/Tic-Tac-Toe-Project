@@ -1,8 +1,8 @@
 import PlayerGenerator from '../src/player-utils';
 import Game from '../src/game-utils';
 import GameDom from '../src/dom-utils';
-const dommer = GameDom;
 
+const dommer = GameDom;
 const game = Game;
 
 test('Check for winning combination #1', () => {
@@ -76,9 +76,30 @@ test('Check for winning false combination #6', () => {
 });
 
 document.body.innerHTML += '<div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div>';
+
 test('Check for draw true combination #1', () => {
   const currentCombinations = dommer.cellElements;
   expect(game.isDraw(currentCombinations)).toBe(true);
+  currentCombinations.forEach(comb => {
+    comb.remove();
+  });
+});
+
+document.body.innerHTML += '<div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="circle" data-cell></div><div class="cell" class="x" data-cell></div><div class="cell" class="circle" data-cell></div>';
+
+test('Check for draw true combination #2', () => {
+  const currentCombinations = dommer.cellElements;
+  expect(game.isDraw(currentCombinations)).toBe(true);
+  currentCombinations.forEach(comb => {
+    comb.remove();
+  });
+});
+
+document.body.innerHTML += '<div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div><div class="cell" data-cell></div>';
+
+test('Check for draw false combination #1', () => {
+  const currentCombinations = document.querySelectorAll('[data-cell]');
+  expect(game.isDraw(currentCombinations)).toBe(false);
   currentCombinations.forEach(comb => {
     comb.remove();
   });
