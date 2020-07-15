@@ -4,7 +4,8 @@
   "description": "A Simple Library Web App that store books according to the user input. [*The Odin Project*](https://www.theodinproject.com/courses/javascript/lessons/tic-tac-toe-javascript).",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "jest": "jest --all",
+    "test": "jest -o",
     "watch": "webpack --mode development --watch",
     "build": "webpack --mode development --build",
     "dev": "webpack --mode development",
