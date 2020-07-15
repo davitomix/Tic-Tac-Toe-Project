@@ -104,3 +104,26 @@ test('Check for draw false combination #1', () => {
     comb.remove();
   });
 });
+
+document.body.innerHTML += '<div class="board" id="board"></div>';
+test('Check setBoardHoverClass() true set x player', () => {
+  const currBoard = document.getElementById('board');
+  game.setBoardHoverClass(true, currBoard);
+  expect(currBoard.classList.contains('x')).toBe(true);
+});
+test('Check setBoardHoverClass() incorrect set x player', () => {
+  const currBoard = document.getElementById('board');
+  game.setBoardHoverClass(true, currBoard);
+  expect(currBoard.classList.contains('circle')).toBe(false);
+});
+test('Check setBoardHoverClass() true set circle player', () => {
+  const currBoard = document.getElementById('board');
+  game.setBoardHoverClass(false, currBoard);
+  expect(currBoard.classList.contains('circle')).toBe(true);
+});
+test('Check setBoardHoverClass() incorrect set circle player', () => {
+  const currBoard = document.getElementById('board');
+  game.setBoardHoverClass(false, currBoard);
+  expect(currBoard.classList.contains('x')).toBe(false);
+  currBoard.remove();
+});
