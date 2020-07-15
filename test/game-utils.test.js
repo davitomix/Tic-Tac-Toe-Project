@@ -106,24 +106,57 @@ test('Check for draw false combination #1', () => {
 });
 
 document.body.innerHTML += '<div class="board" id="board"></div>';
+
 test('Check setBoardHoverClass() true set x player', () => {
   const currBoard = document.getElementById('board');
   game.setBoardHoverClass(true, currBoard);
   expect(currBoard.classList.contains('x')).toBe(true);
 });
+
 test('Check setBoardHoverClass() incorrect set x player', () => {
   const currBoard = document.getElementById('board');
   game.setBoardHoverClass(true, currBoard);
   expect(currBoard.classList.contains('circle')).toBe(false);
 });
+
 test('Check setBoardHoverClass() true set circle player', () => {
   const currBoard = document.getElementById('board');
   game.setBoardHoverClass(false, currBoard);
   expect(currBoard.classList.contains('circle')).toBe(true);
 });
+
 test('Check setBoardHoverClass() incorrect set circle player', () => {
   const currBoard = document.getElementById('board');
   game.setBoardHoverClass(false, currBoard);
   expect(currBoard.classList.contains('x')).toBe(false);
   currBoard.remove();
+});
+
+document.body.innerHTML += '<div class="board" id="board"><div class="cell" id="cell"></div></div>';
+
+test('Check placeMark() true set player symbol x', () => {
+  const currCell = document.getElementById('cell');
+  game.placeMark(currCell, 'x');
+  expect(currCell.classList.contains('x')).toBe(true);
+});
+
+test('Check placeMark() false set player symbol x', () => {
+  const currCell = document.getElementById('cell');
+  game.placeMark(currCell, 'x');
+  expect(currCell.classList.contains('circle')).toBe(false);
+  document.getElementById('board').remove();
+});
+
+document.body.innerHTML += '<div class="board" id="board"><div class="cell" id="cell"></div></div>';
+
+test('Check placeMark() true set player symbol circle', () => {
+  const currCell = document.getElementById('cell');
+  game.placeMark(currCell, 'circle');
+  expect(currCell.classList.contains('circle')).toBe(true);
+});
+
+test('Check placeMark() false set player symbol circle', () => {
+  const currCell = document.getElementById('cell');
+  game.placeMark(currCell, 'circle');
+  expect(currCell.classList.contains('x')).toBe(false);
 });
